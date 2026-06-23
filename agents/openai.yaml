@@ -1,0 +1,4 @@
+interface:
+  display_name: "Industry Cognition"
+  short_description: "Research industries through business fundamentals"
+  default_prompt: "Use $industry-cognition to build a compact industry research protocol for food delivery."
