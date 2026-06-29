@@ -1,0 +1,4 @@
+interface:
+  display_name: "Model Data Finder"
+  short_description: "Find model-ready public data and proxies"
+  default_prompt: "Use $model-data-finder to build leader-anchor data and infer Kuailv model variables."

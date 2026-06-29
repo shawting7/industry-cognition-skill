@@ -1,6 +1,6 @@
 ---
 name: industry-cognition
-description: "Industry cognition research for strategy operators. Use when the user asks to understand an industry, category, company, business model, market shift, IPO prospectus, annual report, investor material, financing event, founder interview, AI product demo, or startup trend through commercial fundamentals: industry definition, leading-company reference points, prospectus and financial analysis, model-ready key number extraction, simple operating models, competitive structure, and trend signals from founders and investors."
+description: "Industry cognition research for strategy operators. Use when the user asks to understand an industry, category, company, business model, market shift, IPO prospectus, annual report, investor material, financing event, founder interview, AI product demo, startup trend, or whether a parent company will continue, shrink, integrate, or shut down an internal business. Analyze through commercial fundamentals: industry definition, leading-company reference points, prospectus and financial analysis, model-ready key number extraction, simple operating models, competitive structure, trend signals from founders and investors, and optional parent-company strategic patience."
 ---
 
 # Industry Cognition
@@ -45,9 +45,10 @@ Use for a serious industry or category study. Structure the work around:
 5. **Primary Materials**: Read prospectuses, annual reports, 10-K/20-F filings, investor presentations, earnings call transcripts, and official operating metrics before relying on commentary.
 6. **Four-Part Reading Frame**: Extract macro market, user demand, competitive environment, and the simplest financial/operating model that connects the first three.
 7. **Key Number Base**: Extract only the numbers that change the market judgment or model. Keep source, year, unit, definition, and confidence attached to each number.
-8. **Minimal Model With Data**: Express the business in a small formula or driver tree, then choose one anchor company and substitute real company numbers into the formula. Show derived metrics and caveats.
-9. **Trend Signals**: Use startups, founder interviews, product demos, financing events, and investor discussions only to test whether the industry definition or model variables need updating.
-10. **Judgment**: Separate what is known, what is inferred, what is uncertain, and what would change the conclusion.
+8. **Minimal Model With Data**: Express the business in a small formula or driver tree. When data matters, use leader-company facts first: build the listed leader's prospectus-era model, calibrate it with the latest annual report, then map the target company, segment, or new business onto that double anchor.
+9. **Leader-To-Target Inference**: Use `$model-data-finder` when the memo needs prospectus-era leader data, latest annual-report calibration, target-company inferred formula numbers, proxy ranges, or a variable-difference map. Do not stop at "no direct data"; infer carefully from leader anchors and environmental differences.
+10. **Trend Signals**: Use startups, founder interviews, product demos, financing events, and investor discussions only to test whether the industry definition or model variables need updating.
+11. **Judgment**: Separate what is known, what is inferred, what is uncertain, and what would change the conclusion.
 
 ### Quick Scan
 
@@ -70,6 +71,33 @@ Use when the user brings a financing event, product demo, founder interview, inv
 - Which listed leaders or adjacent companies are the right reference points?
 - What would confirm or falsify the signal?
 - Does this update the industry definition, the model, or only the watchlist?
+
+### Parent-Company Strategic Patience
+
+Use as a follow-up callable module when the user asks whether a large-company internal business, segment, overseas expansion, innovation project, or undisclosed business will keep growing, be integrated, be shrunk, or be shut down.
+
+Do not run this by default in every industry memo. Run it when the user asks about future evolution, closure risk, strategic priority, organizational patience, or whether the business still has a reason to exist inside its parent company.
+
+Answer:
+
+- What is the parent company's current main battlefield?
+- What are the parent's latest profit, cash flow, cash balance, capital allocation, and competitive pressures?
+- Is the target business repeatedly named by management, disclosed as a segment, hidden in a broader segment, or absent from reporting?
+- Does the target business serve growth, profit, defense, synergy, supply control, user frequency, merchant retention, data, or experimentation?
+- Which parent assets can the target reuse: customers, merchants, logistics, traffic, payments, data, salesforce, procurement, technology, brand, or financing?
+- Which scarce resources does it consume: cash, subsidy, management attention, warehouse capacity, sales team, risk capital, inventory, or regulatory tolerance?
+- Does the target's standalone industry model justify continued investment, or must it prove parent-level synergy?
+
+Use this compact judgment set:
+
+```text
+加码: becomes an independent growth curve.
+收缩: keeps only high-density geographies, high-certainty categories, or profitable cohorts.
+并入: brand weakens and the capability becomes infrastructure inside another business.
+关停: weak synergy plus unacceptable losses, working-capital burden, or resource drag.
+```
+
+End with the parent-company condition that would change the judgment.
 
 ## Source Hierarchy
 
@@ -126,12 +154,22 @@ For an `industry memo`, use this shape unless the user asks otherwise:
 2. **候选定义**: List 3-5 definitions. For each, state the metric that should matter if the definition is true.
 3. **龙头叙事**: Use a small leader set to show how the category is described in filings and investor materials.
 4. **招股书/财报只读四件事**: Macro market, user demand, competition, and the simple model.
-5. **极简模型代入**: Show the full formula, then substitute one anchor company's real numbers. Label derived estimates clearly.
-6. **需要验证的问题**: Use a series of leaders and adjacent companies to test scale, costs, monetization, and profit pools.
-7. **趋势更新**: Include startups, financing, founders, investors, and demos only when they change a model variable.
-8. **当前判断**: State what is known, what is inferred, and what would change the conclusion.
+5. **龙头招股书原始模型**: Use the leader's IPO prospectus, S-1, 424B4, listing document, or earliest full filing to show original narrative, historical numbers, original metrics, and initial formula.
+6. **龙头最新年报校准**: Use the latest annual report, 10-K, 20-F, or full-year results to show current numbers, segment structure, margin reality, and what changed.
+7. **目标公司公式推断**: Map the target company, segment, or new business onto the leader's original and current formulas. Label each number as reported, derived, proxy, or inferred.
+8. **差异化变量**: State which environmental variables make the target better or worse than the leader anchor.
+9. **需要验证的问题**: Use a series of leaders and adjacent companies to test scale, costs, monetization, and profit pools.
+10. **趋势更新**: Include startups, financing, founders, investors, and demos only when they change a model variable.
+11. **当前判断**: State what is known, what is inferred, and what would change the conclusion.
 
 Keep the default memo compact. Move large filing extracts, long source tables, and company-by-company notes outside the main memo unless the user asks for them.
+
+## Follow-Up Callable Items
+
+After a memo, suggest or run these only when the user asks for them:
+
+- **数据补全 / Model Data Finder**: Use `$model-data-finder` to add leader prospectus data, latest annual-report calibration, and target-company inferred formula numbers.
+- **母公司战略耐心判断**: Use `Parent-Company Strategic Patience` to judge whether an internal business should be加码, 收缩, 并入, or 关停 under the parent company's current financial, competitive, and strategic context.
 
 ## Standard Example
 
